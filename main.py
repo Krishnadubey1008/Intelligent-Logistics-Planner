@@ -82,3 +82,58 @@ if __name__ == "__main__":
         vehicle_capacity=VEHICLE_CAPACITY_KG,
         departure_time=DEPARTURE_TIME
     )
+
+# main.py
+"""
+from datetime import datetime, timedelta
+import random
+
+# Import our custom modules
+from graph import CityGraph
+from planner import LogisticsPlanner
+
+# This is the main block of code that runs when you execute the script.
+if __name__ == "__main__":
+    
+    # 1. SETUP THE SCENARIO
+    
+    # Create our city map
+    city = CityGraph()
+    city.add_road('Warehouse', 'A', 4)
+    city.add_road('Warehouse', 'B', 7)
+    city.add_road('A', 'C', 2)
+    city.add_road('A', 'D', 5)
+    city.add_road('B', 'C', 3)
+    city.add_road('B', 'E', 8)
+    city.add_road('C', 'D', 4)
+    city.add_road('C', 'E', 6)
+    city.add_road('D', 'F', 7)
+    city.add_road('E', 'F', 9)
+
+    # Define vehicle properties
+    VEHICLE_CAPACITY_KG = 50
+    DEPARTURE_TIME = datetime.now().replace(hour=9, minute=0, second=0, microsecond=0)
+
+    # Define the list of orders for the day
+    # Each order has a destination, weight, priority, and a delivery time window.
+    orders_to_deliver = [
+        {'id': 1, 'destination': 'C', 'weight': 10, 'priority': 60, 'time_window': (DEPARTURE_TIME + timedelta(hours=1), DEPARTURE_TIME + timedelta(hours=2))},
+        {'id': 2, 'destination': 'D', 'weight': 20, 'priority': 100, 'time_window': (DEPARTURE_TIME + timedelta(hours=1), DEPARTURE_TIME + timedelta(hours=3))},
+        {'id': 3, 'destination': 'F', 'weight': 30, 'priority': 120, 'time_window': (DEPARTURE_TIME + timedelta(hours=3), DEPARTURE_TIME + timedelta(hours=5))},
+        {'id': 4, 'destination': 'A', 'weight': 15, 'priority': 90, 'time_window': (DEPARTURE_TIME + timedelta(hours=0.5), DEPARTURE_TIME + timedelta(hours=1.5))},
+        {'id': 5, 'destination': 'E', 'weight': 25, 'priority': 130, 'time_window': (DEPARTURE_TIME + timedelta(hours=2), DEPARTURE_TIME + timedelta(hours=4))},
+    ]
+
+    # 2. RUN THE PLANNER
+    
+    # Initialize our planner with the city map
+    planner = LogisticsPlanner(city)
+
+    # Create the delivery plan
+    planner.create_delivery_plan(
+        warehouse='Warehouse',
+        all_orders=orders_to_deliver,
+        vehicle_capacity=VEHICLE_CAPACITY_KG,
+        departure_time=DEPARTURE_TIME
+    )
+"""
