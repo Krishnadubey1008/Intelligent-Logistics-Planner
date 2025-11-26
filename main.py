@@ -7,10 +7,6 @@ from graph import CityGraph
 from planner import LogisticsPlanner
 
 def setup_real_world_scenario(place_name="Piedmont, California, USA", num_orders=5):
-    """
-    Uses the heavy library 'osmnx' to download real-world street data.
-    It converts the OpenStreetMap graph into our custom CityGraph.
-    """
     print(f"--- 1. Downloading real map data for: {place_name} ---")
     print("    (This may take a moment depending on internet speed...)")
     
@@ -58,9 +54,7 @@ def setup_real_world_scenario(place_name="Piedmont, California, USA", num_orders
     return city, orders, warehouse_node
 
 if __name__ == "__main__":
-    
-    LOCATION_QUERY = "Piedmont, California, USA" 
-    
+    LOCATION_QUERY = "Piedmont, California, USA"
     VEHICLE_CAPACITY = 100
     START_TIME = datetime.now().replace(hour=8, minute=0, second=0, microsecond=0)
 
